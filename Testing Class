@@ -1,0 +1,25 @@
+class Counter:
+    def __init__(self):
+        self.value = 0
+
+    def increment(self):
+        self.value += 1
+
+    def get_value(self):
+        return self.value
+
+class TestCounter(unittest.TestCase):
+    def test_initial_value(self):
+        counter = Counter()
+        self.assertEqual(counter.get_value(), 0)
+
+    def test_increment(self):
+        counter = Counter()
+        counter.increment()
+        self.assertEqual(counter.get_value(), 1)
+
+    def test_multiple_increments(self):
+        counter = Counter()
+        for _ in range(5):
+            counter.increment()
+        self.assertEqual(counter.get_value(), 5)
